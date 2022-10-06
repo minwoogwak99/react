@@ -3,15 +3,15 @@ import { useState } from "react";
 const App = () => {
   const [counter, setCounter] = useState(0);
 
-  const handleClick = () => {
-    console.log("button clicked");
-    setCounter(counter + 1);
-  };
+  const inscreaseByOne = () => setCounter(counter + 1);
+
+  const reset = () => setCounter(0);
 
   return (
     <div>
       <div>{counter}</div>
-      <button onClick={handleClick}>add 1</button>
+      <button onClick={inscreaseByOne}>add 1</button>
+      <button onClick={reset}>reset to 0</button>
     </div>
   );
 };
