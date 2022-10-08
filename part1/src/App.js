@@ -3,23 +3,29 @@ import { useState } from "react";
 const ComplexState = () => {
   const [clicks, setClicks] = useState({ left: 0, right: 0 });
 
+  const handleLeftClick = () => {
+    const newClick = {
+      left: clicks.left + 1,
+      right: clicks.right,
+    };
+
+    return newClick;
+  };
+
+  const handleRightClick = () => {
+    const newClick = {
+      left: clicks.left,
+      right: clicks.right + 1,
+    };
+
+    return newClick;
+  };
+
   return (
     <div>
       {clicks.left}
-      <button
-        onClick={() =>
-          setClicks({ left: clicks.left + 1, right: clicks.right })
-        }
-      >
-        left
-      </button>
-      <button
-        onClick={() =>
-          setClicks({ left: clicks.left, right: clicks.right + 1 })
-        }
-      >
-        right
-      </button>
+      <button onClick={() => setClicks(handleLeftClick)}>left</button>
+      <button onClick={() => setClicks(handleRightClick)}>right</button>
       {clicks.right}
     </div>
   );
