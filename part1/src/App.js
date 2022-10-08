@@ -5,8 +5,8 @@ const ComplexState = () => {
 
   const handleLeftClick = () => {
     const newClick = {
+      ...clicks,
       left: clicks.left + 1,
-      right: clicks.right,
     };
 
     return newClick;
@@ -14,7 +14,7 @@ const ComplexState = () => {
 
   const handleRightClick = () => {
     const newClick = {
-      left: clicks.left,
+      ...clicks,
       right: clicks.right + 1,
     };
 
