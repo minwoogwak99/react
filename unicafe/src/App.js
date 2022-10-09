@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 const Statistics = (props) => {
+  if (!(props.good || props.neutral || props.bad)) {
+    return <div>No feedback Given</div>;
+  }
   return (
     <div>
       <h2>Statistics</h2>
