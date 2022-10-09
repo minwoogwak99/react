@@ -8,14 +8,28 @@ const Statistics = (props) => {
     <div>
       <h2>Statistics</h2>
       <ul>
-        <li>good: {props.good}</li>
-        <li>neutral: {props.neutral}</li>
-        <li>bad: {props.bad}</li>
-        <li>total: {props.total}</li>
-        <li>average: {(props.good - props.bad) / props.total}</li>
-        <li>positive: {(props.good / props.total) * 100}</li>
+        <StatisticLine text="good" value={props.good} />
+        <StatisticLine text="neutral" value={props.neutral} />
+        <StatisticLine text="bad" value={props.bad} />
+        <StatisticLine text="total" value={props.total} />
+        <StatisticLine
+          text="average"
+          value={(props.good - props.bad) / props.total}
+        />
+        <StatisticLine
+          text="positive"
+          value={(props.good / props.total) * 100}
+        />
       </ul>
     </div>
+  );
+};
+
+const StatisticLine = (props) => {
+  return (
+    <li>
+      {props.text}: {props.value}
+    </li>
   );
 };
 
