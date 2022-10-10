@@ -14,11 +14,11 @@ const Statistics = (props) => {
         <StatisticLine text="total" value={props.total} />
         <StatisticLine
           text="average"
-          value={(props.good - props.bad) / props.total}
+          value={((props.good - props.bad) / props.total).toFixed(1)}
         />
         <StatisticLine
           text="positive"
-          value={(props.good / props.total) * 100}
+          value={((props.good / props.total) * 100).toFixed(1)}
         />
       </ul>
     </div>
