@@ -1,16 +1,20 @@
-function App(props) {
-  const { notes } = props;
+import Note from "./components/Note";
 
+const Header = (props) => {
+  return <h1>{props.header}</h1>;
+};
+
+const App = ({ notes }) => {
   return (
     <div>
-      <h1>Notes</h1>
+      <Header header="Notes" />
       <ul>
         {notes.map((note) => (
-          <li key={note.id}>{note.content}</li>
+          <Note key={note.id} note={note} />
         ))}
       </ul>
     </div>
   );
-}
+};
 
 export default App;
